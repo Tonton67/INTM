@@ -11,6 +11,9 @@ namespace Serie_I
         static bool IsPrime(int valeur)
         {
             //TODO
+
+            a = q * b
+
             return false;
         }
 
