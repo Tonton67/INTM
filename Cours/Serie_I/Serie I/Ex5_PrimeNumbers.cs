@@ -11,8 +11,16 @@ namespace Serie_I
         static bool IsPrime(int valeur)
         {
             //TODO
-
+            int a;
+            int b;
+            int q;
+            Math.Sqrt(a)
+            if (1 <= b <= Math.Sqrt(a))
+     
+            {
             a = q * b
+            }
+
 
             return false;
         }
