@@ -10,6 +10,22 @@ namespace Cours_1
     {
         static void Main(string[] args)
         {
-        }
+            string fname = Console.ReadLine();
+
+            Console.WriteLine("Hello " + fname + " !");
+
+
+            fname = "Toto";
+            Console.WriteLine($"Hello {fname} ! {fname.Length}");
+           
+
+
+
+
+
+
+            Console.ReadKey();
+
+                }
     }
 }
