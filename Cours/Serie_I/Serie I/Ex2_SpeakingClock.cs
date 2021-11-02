@@ -9,9 +9,34 @@ namespace Serie_I
     public static class SpeakingClock
     {
         public static string GoodDay(int heure)
+            
         {
             //TODO
+            if (heure >= 0 && heure < 6)
+            {
+                Console.WriteLine("Merveilleuse nuit.");
+            }
+            else if (heure >= 6 && heure < 12)
+            {
+                Console.WriteLine("Bonne matinée.");
+            }
+            else if (heure == 12)
+            {
+                Console.WriteLine("Bon appétit!");
+            }
+            else if (heure >= 13 && heure < 18)
+            {
+                Console.WriteLine("Profitez de votre après-midi.");
+            }
+            else if (heure >= 18 && heure <= 23)
+            {
+                Console.WriteLine("Passez une bonne soirée !");
+            }
+            else
+            {
+                Console.WriteLine("Adios !");
+            }
             return string.Empty;
-        }
+            }
     }
 }

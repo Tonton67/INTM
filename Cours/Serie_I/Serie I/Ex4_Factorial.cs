@@ -11,13 +11,27 @@ namespace Serie_I
         public static int Factorial_(int n)
         {
             //TODO
-            return -1;
+            int x = 1;
+            for (int i = 1; i <= n; i++)
+            {
+                x *= i;
+            //Console.WriteLine($"x = {x} ; n = {n}");
+            }
+            return x;
         }
 
         public static int FactorialRecursive(int n)
         {
             //TODO
-            return -1;
+            if (n > 1)
+            {
+                return n * FactorialRecursive(n - 1);
+            }
+            else
+            {
+                return 1;
+            }
+            //return > 1 ? n * FactorialRecursive(n - 1) : 1;
         }
     }
 }
