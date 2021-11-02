@@ -17,10 +17,23 @@ namespace Cours_1
 
             fname = "Toto";
             Console.WriteLine($"Hello {fname} ! {fname.Length}");
-           
 
 
+            int i = 5;
+            int j = 2;
 
+            if (i > j)
+            {
+                Console.WriteLine($"i > j");
+            }
+            else if (i < j)
+            {
+                Console.WriteLine($" i < j");
+            }
+            else
+            {
+                Console.WriteLine($" i = j");
+            }
 
 
 
