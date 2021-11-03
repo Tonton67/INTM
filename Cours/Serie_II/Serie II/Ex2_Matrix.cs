@@ -111,7 +111,32 @@ namespace Serie_II
         public static int[][] Multiplication(int[][] leftMatrix, int[][] rightMatrix)
         {
             //TODO
-            return new int[0][];
+            if (leftMatrix.Length != rightMatrix.Length)
+            {
+                return new int[0][];
+            }
+            int[][] array = new int[leftMatrix.Length][];
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = new int[rightMatrix.Length];
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    //   array[i][j] = leftMatrix[i][k] + rightMatrix[j][l];
+                    for (int k = 0; k < array.Length; k++)
+                    {
+                        array[k] = new int[rightMatrix.Length];
+                        for (int l = 0; l < array[k].Length; l++)
+                        {
+                            array[i][j] = leftMatrix[i][k] * rightMatrix[j][l];
+                            array[k][l] = leftMatrix[i][k] * rightMatrix[j][l];
+
+                        }
+                    }
+                }
+      
+            }
+            return array;
         }
 
         public static void DisplayMatrix(int[][] matrix)
