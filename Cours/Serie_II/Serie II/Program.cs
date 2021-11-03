@@ -74,6 +74,19 @@ namespace Serie_II
             };
             Quiz.AskQuestions(qcms);
 
+            int[] left = { 1, 2, 3 };
+            int[] right = { -1, -4, 0 };
+
+            int[][] matrix = Matrix.BuildingMatrix(left, right);
+            Matrix.DisplayMatrix(matrix);
+
+            int[][] left1 = { 1, 4, -1 };
+            int[] left2 = { 2, 6, 8 };
+            int[][] right1 = { -1, -4, 0 };
+            int[] right2 = { 5, 0, 2 };
+
+            int[][] matrix1 = Matrix.Addition(left1, right1);
+            Matrix.DisplayMatrix(matrix1);
 
 
             // Keep the console window open
