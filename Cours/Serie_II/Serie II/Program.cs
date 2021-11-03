@@ -22,7 +22,7 @@ namespace Serie_II
 
             Console.WriteLine("Exercice 3");
 
-            int [] res = Eratosthene.EratosthenesSieve(100);
+            int[] res = Eratosthene.EratosthenesSieve(100);
             foreach (int nbr in res)
             {
                 if (nbr != 0)
@@ -38,28 +38,43 @@ namespace Serie_II
 
             Console.WriteLine("Exercice 4");
 
-            string question = "Quelle est l'année du sacre de Charlemagne";
-            string[] answers = new string[] { "476", "800", "1066", "1798" };
-            int solution = 1;
-            int weight = 1;
-            Qcm qcm1 = new Qcm(question, answers, solution, weight);
+            //string question = "Quelle est l'année du sacre de Charlemagne";
+            //string[] answers = new string[] { "476", "800", "1066", "1798" };
+            //int solution = 1;
+            //int weight = 1;
+            //Qcm qcm1 = new Qcm(question, answers, solution, weight);
             //Qcm qcm2 = new Qcm();
             //qcm2.Question = question;
             //qcm2.Answers = answers;
+            //Quiz.AskQuestion(qcm1);
 
-            //Qcm[] qcms = new Qcm[3];
-            //{
-            //new Qcm
-            //{
-            // Question = "Quelle l'année du sacre de Charlemagne ?",
-            // Answers = new string[] { "476", "800", "1066", "1789" },
-            // Solution = 1,
-            // Weight = 1
-            //},
-            //new Qcm
+            Qcm[] qcms = new Qcm[3]
+            {
+                new Qcm
+                {
+                    Question = "Quelle l'année du sacre de Charlemagne ?",
+                    Answers = new string[] { "476", "800", "1066", "1789" },
+                    Solution = 1,
+                    Weight = 1
+                },
+                new Qcm
+                {
+                    Question = "Quelle l'année du sacre de Charlemagne ?",
+                    Answers = new string[] { "476", "800", "1066", "1789" },
+                    Solution = 1,
+                    Weight = 3
+                },
+                new Qcm
+                {
+                    Question = "Quelle l'année du sacre de Charlemagne ?",
+                    Answers = new string[] { "476", "800", "1066", "1789" },
+                    Solution = 12,
+                    Weight = -40
+                }
+            };
+            Quiz.AskQuestions(qcms);
 
-            //Quiz.AskQuestion(qcms);
-            Quiz.AskQuestion(qcm1);
+
 
             // Keep the console window open
             Console.WriteLine("----------------------");

@@ -27,8 +27,18 @@ namespace Serie_II
         public static void AskQuestions(Qcm[] qcms)
         {
             //TODO
-        
-                    return -1;
+            int note = 0;
+            int total = 0;
+            for (int i = 0; i < qcms.Length; i++)
+            {
+                if (QcmValidity(qcms[i]))
+                {
+                    note += AskQuestion(qcms[i]);
+                    total += qcms[i].Weight;
+                }
+
+            }
+            Console.WriteLine($"Note : {note} / {total}");
         }
 
         public static int AskQuestion(Qcm qcm)
@@ -51,7 +61,7 @@ namespace Serie_II
             {
                 Console.WriteLine("Merci de bien vouloir ressaisir une réponse.");
                 answers = Console.ReadLine();
-            }   
+            }
             if (ent != qcm.Solution)
             {
                 Console.WriteLine("Réponse invalide.");
