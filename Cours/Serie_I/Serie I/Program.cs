@@ -54,6 +54,9 @@ namespace Serie_I
 
             PrimeNumbers.DisplayPrimes();
 
+            int z = Euclide.Pgcd(15, 5);
+            Console.WriteLine(z);
+            Console.WriteLine(Euclide.PgcdRecursive(142, 14));
 
             // Keep the console window open
             Console.WriteLine("----------------------");
