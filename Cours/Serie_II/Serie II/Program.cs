@@ -19,11 +19,22 @@ namespace Serie_II
             Array.Sort(array);
             Console.WriteLine(Search.BinarySearch(array, valeur));
 
-            Console.WriteLine("Exercice 2");
+            Console.WriteLine("Exercice 3");
 
-            //int[,] jaggedArray = new int[10,10];
+            int [] res = Eratosthene.EratosthenesSieve(100);
+            foreach (int nbr in res)
+            {
+                if (nbr != 0)
+                {
+                    Console.WriteLine(nbr);
+                }
+            }
 
-            Console.WriteLine(Eratosthene.EratosthenesSieve(50));
+            //int[] array1 = new int [100];
+            //Console.WriteLine(Eratosthene.EratosthenesSieve(50));
+
+
+
 
 
             // Keep the console window open

@@ -11,11 +11,28 @@ namespace Serie_II
         public static int[] EratosthenesSieve(int n)
         {
             //TODO
-            for (int i = 1; i < length; i++)
+            int[] array = new int[n + 1];
+            for (int i = 1; i < array.Length; i++)
             {
-
+                array[i] = i;
             }
-            return new int[0];
+                for (int j = 2; j < Math.Sqrt(n); j++)
+                {
+                    if (array[j] != 0)
+                    {
+                        for (int multiple = 2 * j; multiple < array.Length; multiple += j)
+                        {
+                            if (array[multiple] != 0)
+                            {
+                                array[multiple] = 0;
+                            }
+
+                        }
+
+                    }
+                }
+            
+            return array;
         }
     }
 }
