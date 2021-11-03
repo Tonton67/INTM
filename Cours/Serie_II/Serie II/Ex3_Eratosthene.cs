@@ -11,6 +11,10 @@ namespace Serie_II
         public static int[] EratosthenesSieve(int n)
         {
             //TODO
+            for (int i = 1; i < length; i++)
+            {
+
+            }
             return new int[0];
         }
     }
