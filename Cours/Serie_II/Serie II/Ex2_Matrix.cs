@@ -11,6 +11,10 @@ namespace Serie_II
         public static int[][] BuildingMatrix(int[] leftVector, int[] rightVector)
         {
             //TODO
+            //int m = (leftVector * rightVector);
+
+            //Console.WriteLine(m);
+
             return new int[0][];
         }
 

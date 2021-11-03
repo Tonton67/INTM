@@ -19,6 +19,7 @@ namespace Serie_II
             Array.Sort(array);
             Console.WriteLine(Search.BinarySearch(array, valeur));
 
+
             Console.WriteLine("Exercice 3");
 
             int [] res = Eratosthene.EratosthenesSieve(100);
@@ -26,16 +27,39 @@ namespace Serie_II
             {
                 if (nbr != 0)
                 {
-                    Console.WriteLine(nbr);
+                    Console.Write(nbr);
+                    Console.Write(",");
                 }
             }
 
-            //int[] array1 = new int [100];
-            //Console.WriteLine(Eratosthene.EratosthenesSieve(50));
+            Console.WriteLine("Exercice 2");
 
+            //Console.WriteLine(Matrix.BuildingMatrix(1,-1));
 
+            Console.WriteLine("Exercice 4");
 
+            string question = "Quelle est l'année du sacre de Charlemagne";
+            string[] answers = new string[] { "476", "800", "1066", "1798" };
+            int solution = 1;
+            int weight = 1;
+            Qcm qcm1 = new Qcm(question, answers, solution, weight);
+            //Qcm qcm2 = new Qcm();
+            //qcm2.Question = question;
+            //qcm2.Answers = answers;
 
+            //Qcm[] qcms = new Qcm[3];
+            //{
+            //new Qcm
+            //{
+            // Question = "Quelle l'année du sacre de Charlemagne ?",
+            // Answers = new string[] { "476", "800", "1066", "1789" },
+            // Solution = 1,
+            // Weight = 1
+            //},
+            //new Qcm
+
+            //Quiz.AskQuestion(qcms);
+            Quiz.AskQuestion(qcm1);
 
             // Keep the console window open
             Console.WriteLine("----------------------");
