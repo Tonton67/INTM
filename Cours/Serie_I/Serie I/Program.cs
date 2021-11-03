@@ -52,7 +52,7 @@ namespace Serie_I
 
             Pyramid.PyramidConstruction(10,false);
 
-
+            PrimeNumbers.DisplayPrimes();
 
 
             // Keep the console window open

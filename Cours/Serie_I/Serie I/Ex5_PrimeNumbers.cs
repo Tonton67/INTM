@@ -11,23 +11,30 @@ namespace Serie_I
         static bool IsPrime(int valeur)
         {
             //TODO
-            int a;
-            int b;
-            int q;
-            Math.Sqrt(a)
-            if (1 <= b <= Math.Sqrt(a))
-     
+            for (int i = 2; i <= Math.Sqrt(valeur); i++)
             {
-            a = q * b
+                if (valeur % i == 0)
+                {
+                    return false;
+                }
+
             }
+            return true;
 
-
-            return false;
         }
 
         public static void DisplayPrimes()
         {
             //TODO
+            for (int i = 1; i < 100; i++)
+            {
+
+                if (IsPrime(i))
+                {
+                    Console.WriteLine($"{i} est un nombre premier.");
+                }
+            }
+
         }
     }
 }
