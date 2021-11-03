@@ -10,7 +10,6 @@ namespace Serie_I
     {
         public static void BasicOperation(int a, int b, char operation)
         {
-            //TODO
             int c;
             switch (operation)
             {
