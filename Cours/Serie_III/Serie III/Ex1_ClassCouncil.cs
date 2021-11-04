@@ -25,7 +25,7 @@ namespace Serie_III
                 {
                     Console.WriteLine(split[i]);
                 }
-                string matiere = split[1];
+                string matiere = split[1].ToUpper();
                 float moyenne;
                 bool convers = float.TryParse(split[2].Replace('.', ','), out moyenne);
 
