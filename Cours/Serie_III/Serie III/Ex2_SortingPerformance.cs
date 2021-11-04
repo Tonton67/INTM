@@ -49,6 +49,13 @@ namespace Serie_III
         private static List<int[]> ArraysGenerator(int size)
         {
             //TODO
+            Random alea = new Random();
+            int[] tabalea = new int[size];
+            for (int i = 0; i < tabalea.Length; i++)
+            {
+                tabalea[i] = alea.Next(0, 101);
+            }
+
             return new List<int[]>();
         }
 
