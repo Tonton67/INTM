@@ -80,13 +80,39 @@ namespace Serie_II
             int[][] matrix = Matrix.BuildingMatrix(left, right);
             Matrix.DisplayMatrix(matrix);
 
-            int[][] left1 = { 1, 4, -1 };
-            int[] left2 = { 2, 6, 8 };
-            int[][] right1 = { -1, -4, 0 };
-            int[] right2 = { 5, 0, 2 };
+            int[][] left1 =
+            {
+                new int[]{ 1,2},
+                new int[]{ 4,6},
+                new int[]{ -1,8}
+            };
+            int[][] right1 =
+                {
+                new int[] {-1, 5 },
+                new int[] {-4, 0 },
+                new int[] { 0, 2 }
+                };
 
-            int[][] matrix1 = Matrix.Addition(left1, right1);
-            Matrix.DisplayMatrix(matrix1);
+            matrix = Matrix.Addition(left1, right1);
+            Matrix.DisplayMatrix(matrix);
+            matrix = Matrix.Substraction(left1, right1);
+            Matrix.DisplayMatrix(matrix);
+
+            int[][] left2 =
+       {
+                new int[]{ 1,2},
+                new int[]{ 4,6},
+                new int[]{ -1,8}
+            };
+            int[][] right2 =
+                {
+                new int[] {-1, 5, 0 },
+                new int[] {-4, 0, 1 },
+            };
+            
+            matrix = Matrix.Multiplication(left2, right2);
+            Matrix.DisplayMatrix(matrix);
+
 
 
             // Keep the console window open
