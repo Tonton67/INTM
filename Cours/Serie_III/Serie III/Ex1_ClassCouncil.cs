@@ -11,10 +11,12 @@ namespace Serie_III
     {
         public static void SchoolMeans(string input, string output)
         {
-            //TODO
+            // Déclaration du dictionnaire
             var matieres = new Dictionary<string, List<float>>();
 
+            // Lecture du fichier
             string[] lines = File.ReadAllLines(input);
+            // Séparation des données
             foreach (string line in lines)
             {
                 Console.WriteLine($"Fichier : {line} ");
@@ -27,6 +29,7 @@ namespace Serie_III
                 float moyenne;
                 bool convers = float.TryParse(split[2].Replace('.', ','), out moyenne);
 
+                // Classement des données dans le dictionnaire
                 if (!matieres.ContainsKey(matiere))
                 {
                     matieres.Add(matiere, new List<float>());
@@ -43,31 +46,8 @@ namespace Serie_III
                 results[k] = $"{moyennes.Key} : {moyennes.Value.Average()}";
                 k++;
             }
-
-
-
-
-
-            //// test 1
-            //System.Nullable<float> averagemoyenne =
-            //    (from matieres in db.matieres select matieres).Average();
-
-            //// test 2
-            //float moyennes = List<float>;
-            //for (int i = 0; i < matieres.Count; i++)
-            //{
-
-            //    if (!matieres.ContainsValue(moyennes) == 0)
-            //    {
-            //        moyennes / matieres[i];
-            //    }
-
-            //}
-
-
             // Ecriture fichier de sortie
             File.WriteAllLines(output, results);
-            //Console.WriteLine($"Sortie : {results}");
         }
     }
 }
