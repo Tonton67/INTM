@@ -35,32 +35,39 @@ namespace Serie_III
             }
             // Calcul de moyenne par matière
             string[] results = new string[matieres.Count];
-
-            System.Nullable<float> averagemoyenne =
-                (from matieres in db.matieres select matieres).Average();
-
-
-                
-
-
-
-
-
-
-            float moyennes = List<float>;
-            for (int i = 0; i < matieres.Count; i++)
+            int k = 0;
+            foreach (var moyennes in matieres)
             {
-
-                if (!matieres.ContainsValue(moyennes) == 0)
-                {
-                    moyennes / matieres[i];
-                }
-
+                Console.WriteLine(moyennes.Key);
+                Console.WriteLine(moyennes.Value.Average());
+                results[k] = $"{moyennes.Key} : {moyennes.Value.Average()}";
+                k++;
             }
+
+
+
+
+
+            //// test 1
+            //System.Nullable<float> averagemoyenne =
+            //    (from matieres in db.matieres select matieres).Average();
+
+            //// test 2
+            //float moyennes = List<float>;
+            //for (int i = 0; i < matieres.Count; i++)
+            //{
+
+            //    if (!matieres.ContainsValue(moyennes) == 0)
+            //    {
+            //        moyennes / matieres[i];
+            //    }
+
+            //}
+
 
             // Ecriture fichier de sortie
             File.WriteAllLines(output, results);
-            Console.WriteLine($"Sortie : {results}");
+            //Console.WriteLine($"Sortie : {results}");
         }
     }
 }
