@@ -11,6 +11,14 @@ namespace Serie_III
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Exercice 1");
+            Console.WriteLine(" ");
+
+            string path = Directory.GetCurrentDirectory();
+            string input = path + @"\test.txt";
+            string output = path + @"\result.txt";
+            ClassCouncil.SchoolMeans(input, output);
+
 
 
             // Keep the console window open
