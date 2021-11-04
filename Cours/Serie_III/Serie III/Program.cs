@@ -19,6 +19,16 @@ namespace Serie_III
             string output = path + @"\result.txt";
             ClassCouncil.SchoolMeans(input, output);
 
+            int[] a = { 6, 4, 8, 2, 9, 3, 9, 4, 7, 6, 1 };
+            int[] b = { 6, 4, 8, 2, 9, 3, 9, 4, 7, 6, 1 };
+            Console.WriteLine(SortingPerformance.UseInsertionSort(a) + "ms");
+            Console.WriteLine(SortingPerformance.UseQuickSort(b) + "ms");
+
+
+            List<int> sizes = new List<int> { 2000, 5000, 10000 };
+            int count = 10;
+
+            SortingPerformance.DisplayPerformances(sizes, count);
 
 
             // Keep the console window open

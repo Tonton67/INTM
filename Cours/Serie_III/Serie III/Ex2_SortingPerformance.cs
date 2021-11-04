@@ -55,13 +55,20 @@ namespace Serie_III
         public static long UseInsertionSort(int[] array)
         {
             //TODO
-            return -1;
+
+            Stopwatch ss = Stopwatch.StartNew();
+            InsertionSort(array);
+            ss.Stop();
+            return ss.ElapsedMilliseconds;
         }
 
         public static long UseQuickSort(int[] array)
         {
             //TODO
-            return -1;
+            Stopwatch ss = Stopwatch.StartNew();
+            QuickSort(array, 0, array.Length -1);
+            ss.Stop();
+            return ss.ElapsedMilliseconds;
         }
 
         private static void InsertionSort(int[] array)
