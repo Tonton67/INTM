@@ -94,6 +94,10 @@ namespace Serie_III
             perftest.InsertionMean = (long)insertions.Average();
             perftest.QuickMean = (long)quicks.Average();
 
+            //perftest.InsertionStd = Math.Sqrt((insertions / count) - (insertions * insertions));
+            //perftest.QuickStd = Math.Sqrt((quicks / count) - (quicks * quicks));
+
+
             perftest.InsertionStd = EcartType(insertions);
             perftest.QuickStd = EcartType(quicks);
 
@@ -109,6 +113,8 @@ namespace Serie_III
             {
                 long avg = (long)tab.Average();
                 long sum = (long)tab.Sum(d => Math.Pow(d - avg, 2));
+
+                //long sum = (long)tab.Sum(d => Math.Pow(d - avg, 2));
                 res = (long)Math.Sqrt(sum / tab.Length);
             }
             return res;
