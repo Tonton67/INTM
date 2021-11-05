@@ -32,50 +32,100 @@ namespace Serie_III
         public static void DisplayPerformances(List<int> sizes, int count)
         {
             //TODO
+            List<SortData> display = PerformancesTest(sizes, count);
+            Console.WriteLine("Tableau :");
+            for (int i = 0; i < sizes.Count; i++)
+            {
+                Console.Write($" Tableau {i} : Insertion : {display[i].InsertionMean} ms");
+                Console.Write($" Quick : {display[i].QuickMean} ms");
+                Console.WriteLine(" ");
+
+            }
+
         }
 
         public static List<SortData> PerformancesTest(List<int> sizes, int count)
         {
             //TODO
-            return new List<SortData>();
+            List<SortData> perfstest = new List<SortData>();
+            for (int i = 0; i < sizes.Count; i++)
+            {
+                perfstest.Add(PerformanceTest(sizes[i], count));
+            }
+
+            return perfstest;
         }
 
         public static SortData PerformanceTest(int size, int count)
         {
             //TODO
-            return new SortData();
+
+            //int moyenne;
+
+            //int m = count;
+
+            long insertionm = 0;
+            long quickm = 0;
+
+            for (int i = 0; i < count; i++)
+            {
+                List<int[]> tabaleas = new List<int[]>();
+
+                tabaleas = ArraysGenerator(size);
+
+                insertionm += UseInsertionSort(tabaleas[0]);
+                quickm += UseQuickSort(tabaleas[1]);
+
+            }
+
+            insertionm = insertionm / count;
+            quickm = quickm / count;
+
+            SortData perftest = new SortData();
+            perftest.InsertionMean = insertionm;
+            perftest.QuickMean = quickm;
+
+            return perftest;
+
         }
 
         private static List<int[]> ArraysGenerator(int size)
         {
             //TODO
             Random alea = new Random();
+
+            List<int[]> tabaleas = new List<int[]>();
+
             int[] tabalea = new int[size];
+
             for (int i = 0; i < tabalea.Length; i++)
             {
-                tabalea[i] = alea.Next(0, 101);
+                tabalea[i] = alea.Next(-1000, 1001);
             }
 
-            return new List<int[]>();
+            tabaleas.Add(tabalea);
+            tabaleas.Add(tabalea);
+
+            return tabaleas;
         }
 
         public static long UseInsertionSort(int[] array)
         {
             //TODO
 
-            Stopwatch ss = Stopwatch.StartNew();
+            Stopwatch watch = Stopwatch.StartNew();
             InsertionSort(array);
-            ss.Stop();
-            return ss.ElapsedMilliseconds;
+            watch.Stop();
+            return watch.ElapsedMilliseconds;
         }
 
         public static long UseQuickSort(int[] array)
         {
             //TODO
-            Stopwatch ss = Stopwatch.StartNew();
-            QuickSort(array, 0, array.Length -1);
-            ss.Stop();
-            return ss.ElapsedMilliseconds;
+            Stopwatch watch = Stopwatch.StartNew();
+            QuickSort(array, 0, array.Length - 1);
+            watch.Stop();
+            return watch.ElapsedMilliseconds;
         }
 
         private static void InsertionSort(int[] array)
