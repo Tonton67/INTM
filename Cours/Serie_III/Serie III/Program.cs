@@ -36,7 +36,7 @@ namespace Serie_III
             
             //SortingPerformance.PerformanceTest(10, 10);
 
-            SortingPerformance.DisplayPerformances(new List<int> { 1000, 2000, 5000 } , 10);
+            SortingPerformance.DisplayPerformances(new List<int> { 2000, 5000, 8000 } , 10);
 
 
             // Keep the console window open

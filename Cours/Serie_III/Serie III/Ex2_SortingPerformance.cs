@@ -36,9 +36,10 @@ namespace Serie_III
             Console.WriteLine("Tableau :");
             for (int i = 0; i < sizes.Count; i++)
             {
-                Console.Write($" Tableau {i} : Insertion : {display[i].InsertionMean} ms");
-                Console.Write($" Quick : {display[i].QuickMean} ms");
+                Console.Write($" Tableau {i} : Insertion : {display[i].InsertionMean} ms  Quick : {display[i].QuickMean} ms Insertion S : {display[i].InsertionStd} ms  Quick S : {display[i].QuickStd} ms");
                 Console.WriteLine(" ");
+
+                //Console.Writeline($"{sizes[i].ToString().PadLeft(7,' '))};{display[i].InsertionMean};{display[i].QuickMean};{display[i].InsertionStd};{display[i].QuickStd}");
 
             }
 
@@ -64,8 +65,11 @@ namespace Serie_III
 
             //int m = count;
 
-            long insertionm = 0;
-            long quickm = 0;
+            //long insertionm = 0;
+            //long quickm = 0;
+
+            long[] insertions = new long[count];
+            long[] quicks = new long[count];
 
             for (int i = 0; i < count; i++)
             {
@@ -73,21 +77,43 @@ namespace Serie_III
 
                 tabaleas = ArraysGenerator(size);
 
-                insertionm += UseInsertionSort(tabaleas[0]);
-                quickm += UseQuickSort(tabaleas[1]);
+                //insertionm += UseInsertionSort(tabaleas[0]);
+                //quickm += UseQuickSort(tabaleas[1]);
 
+                insertions[i] = UseInsertionSort(tabaleas[0]);
+                quicks[i] = UseQuickSort(tabaleas[1]);
             }
 
-            insertionm = insertionm / count;
-            quickm = quickm / count;
+            //insertionm = insertionm / count;
+            //quickm = quickm / count;
+
+            //insertions = insertions / count;
+            //quicks = quicks / count;
 
             SortData perftest = new SortData();
-            perftest.InsertionMean = insertionm;
-            perftest.QuickMean = quickm;
+            perftest.InsertionMean = (long)insertions.Average();
+            perftest.QuickMean = (long)quicks.Average();
+
+            perftest.InsertionStd = EcartType(insertions);
+            perftest.QuickStd = EcartType(quicks);
+
 
             return perftest;
 
         }
+
+        private static long EcartType(long[] tab)
+        {
+            long res = 0;
+            if (tab.Length > 0)
+            {
+                long avg = (long)tab.Average();
+                long sum = (long)tab.Sum(d => Math.Pow(d - avg, 2));
+                res = (long)Math.Sqrt(sum / tab.Length);
+            }
+            return res;
+        }
+
 
         private static List<int[]> ArraysGenerator(int size)
         {
