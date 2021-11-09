@@ -28,10 +28,22 @@ namespace Serie_IV
             /**/
             //Exo 4
             BusinessSchedule bS = new BusinessSchedule();
+            DateTime dt = DateTime.Today;
             try
             {
                 bS.SetRangeOfDates(DateTime.Today, DateTime.Now);
+                bS.SetRangeOfDates(new DateTime(2021, 1, 1), new DateTime(2021, 12, 31));
+
                 //bS.SetRangeOfDates(DateTime.Now, DateTime.Today);
+                TimeSpan oneHour = new TimeSpan(1, 0, 0);
+                for (int i = 0; i < 24; i++)
+                {
+                    bS.AddBusinessMeeting(dt, oneHour);
+                    dt += oneHour;
+                }
+                bS.DeleteBusinessMeeting(DateTime.Today + new TimeSpan(DateTime.Now.Hour, 0, 0), oneHour);
+                bS.AddBusinessMeeting(DateTime.Now, oneHour);
+
                 bS.DisplayMeetings();
             }
             catch (Exception e)
