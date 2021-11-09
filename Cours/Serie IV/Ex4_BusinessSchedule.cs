@@ -104,9 +104,9 @@ namespace Serie_IV
         public bool DeleteBusinessMeeting(DateTime date, TimeSpan duration)
         {
             //TODO
-            KeyValuePair<DateTime, DateTime> supp = ClosestElements(date);
+            DateTime fin = date + duration;
 
-            if (!IsEmpty() && _schedule.ContainsKey(date) && _schedule[date] == duration)
+            if (!IsEmpty() && _schedule.ContainsKey(date) && _schedule[date] == fin)
             {
 
                 return _schedule.Remove(date);
