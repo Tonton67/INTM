@@ -52,24 +52,83 @@ namespace Serie_IV
         public int LettersCount(string code)
         {
             //TODO
-            return -1;
+            string[] separator = new string[] { PointLetter };
+            string[] stringSplit = code.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            return stringSplit.Length;
         }
 
         public int WordsCount(string code)
         {
             //TODO
-            return -1;
+            string[] separator = new string[] { PointWord };
+            string[] stringSplit = code.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            return stringSplit.Length;
+
         }
 
         public string MorseTranslation(string code)
         {
+
             //TODO
-            return string.Empty;
+            string translation = "";
+
+            string[] wordSplit = code.Split(new string[] { PointWord }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var word in wordSplit)
+            {
+                string[] letterSplit = word.Split(new string[] { PointLetter }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (var letter in letterSplit)
+                {
+                    if (_alphabet.ContainsKey(letter))
+                    {
+                        translation += _alphabet[letter];
+                    }
+                    else
+                    {
+                        translation += "+";
+                    }
+                }
+                translation += " ";
+            }
+
+            return translation;
         }
 
         public string EfficientMorseTranslation(string code)
         {
             //TODO
+            code = code.Trim('.');
+
+            foreach (char lettre in code)
+            {
+                Console.WriteLine(lettre);
+            }
+
+
+
+
+            int codeStart = code.IndexOf("..");
+            int codeEnd = code.IndexOf(".");
+            string codeInfo = code.Substring(codeStart - codeEnd, codeEnd);
+
+            Console.WriteLine($"EMT: {codeInfo}");
+
+
+
+
+
+
+            //int startIndex = 10;
+            //int endIndex = code.Length - startIndex;
+
+            //string efficient = code.Substring(startIndex, endIndex);
+
+            //Console.WriteLine($"EMT : {efficient}");
+
+
+
+
+
             return string.Empty;
         }
 
