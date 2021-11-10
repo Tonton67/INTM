@@ -127,6 +127,12 @@ namespace Serie_IV
                         charLength = 0;
 
                     }
+
+                    //if (pointCount >= 3)
+                    //{
+                    //    res.Append(code, startIndex, charLength);
+                    //}
+
                     if (pointCount >= 5)
                     {
                         res += " ";
@@ -146,7 +152,35 @@ namespace Serie_IV
         public string MorseEncryption(string sentence)
         {
             //TODO
-            return string.Empty;
+
+            StringBuilder sb = new StringBuilder();
+            //foreach (var c in sentence)
+            //{
+            //    if (_alphabet.ContainsKey(c))
+            //    {
+            //        sb.Append(_alphabet.First(x => x.Value == c].Key + PointLetter))
+            //    }
+            //    else if (c == ' ')
+            //    {
+            //        sb.Append("..");
+            //    }
+            //}
+            //return string.Empty;
+
+
+            string code = "";
+            foreach (char letter in sentence.ToUpper())
+            {
+                if (letter == ' ')
+                    code += "..";
+                var res = _alphabet.FirstOrDefault(x => x.Value == letter);
+                if (!string.IsNullOrEmpty(res.Key))
+                    code += res.Key + "...";
+            }
+            return code.Trim('.');
+
+
+
         }
     }
 }
