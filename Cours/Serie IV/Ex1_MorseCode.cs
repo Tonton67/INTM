@@ -172,10 +172,14 @@ namespace Serie_IV
             foreach (char letter in sentence.ToUpper())
             {
                 if (letter == ' ')
+                {
                     code += "..";
+                }
                 var res = _alphabet.FirstOrDefault(x => x.Value == letter);
                 if (!string.IsNullOrEmpty(res.Key))
+                {
                     code += res.Key + "...";
+                }
             }
             return code.Trim('.');
 
