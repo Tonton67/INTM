@@ -53,7 +53,7 @@ namespace Serie_IV
         {
             //TODO
             string[] separator = new string[] { PointLetter };
-            string[] stringSplit = code.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            string[] stringSplit = code.Split(separator, StringSplitOptions.None);
             return stringSplit.Length;
         }
 
@@ -61,7 +61,7 @@ namespace Serie_IV
         {
             //TODO
             string[] separator = new string[] { PointWord };
-            string[] stringSplit = code.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            string[] stringSplit = code.Split(separator, StringSplitOptions.None);
             return stringSplit.Length;
 
         }
@@ -72,21 +72,14 @@ namespace Serie_IV
             //TODO
             string translation = "";
 
-            string[] wordSplit = code.Split(new string[] { PointWord }, StringSplitOptions.RemoveEmptyEntries);
+            string[] wordSplit = code.Split(new string[] { PointWord }, StringSplitOptions.None);
             foreach (var word in wordSplit)
             {
-                string[] letterSplit = word.Split(new string[] { PointLetter }, StringSplitOptions.RemoveEmptyEntries);
+                string[] letterSplit = word.Split(new string[] { PointLetter }, StringSplitOptions.None);
 
                 foreach (var letter in letterSplit)
                 {
-                    if (_alphabet.ContainsKey(letter))
-                    {
-                        translation += _alphabet[letter];
-                    }
-                    else
-                    {
-                        translation += "+";
-                    }
+                    translation += GetChar(letter);
                 }
                 translation += " ";
             }
@@ -94,42 +87,60 @@ namespace Serie_IV
             return translation;
         }
 
+        private char GetChar(string letter)
+        {
+            if (_alphabet.ContainsKey(letter))
+            {
+                return _alphabet[letter];
+            }
+            return '+';
+        }
+
         public string EfficientMorseTranslation(string code)
         {
             //TODO
             code = code.Trim('.');
 
-            foreach (char lettre in code)
+            string res = string.Empty;
+            int pointCount = 0;
+            int startIndex = 0;
+            int charLength = 0;
+
+            for (int i = 0; i < code.Length; i++)
             {
-                Console.WriteLine(lettre);
+
+
+
+                if (code[i] == '.')
+                {
+                    pointCount++;
+                }
+                else
+                {
+                    if (pointCount > 2)
+                    {
+                        //string letter = code.Substring(startIndex, charLength - pointCount).Replace("..",".");
+                        string letter = code.Substring(startIndex, charLength - pointCount);
+                        letter = letter.Replace("..", ".");
+                        res += GetChar(letter);
+                        startIndex = i;
+                        charLength = 0;
+
+                    }
+                    if (pointCount >= 5)
+                    {
+                        res += " ";
+                    }
+                    pointCount = 0;
+                }
+
+                charLength++;
+
             }
+            res += GetChar(code.Substring(startIndex, charLength).Replace("..", "."));
 
 
-
-
-            int codeStart = code.IndexOf("..");
-            int codeEnd = code.IndexOf(".");
-            string codeInfo = code.Substring(codeStart - codeEnd, codeEnd);
-
-            Console.WriteLine($"EMT: {codeInfo}");
-
-
-
-
-
-
-            //int startIndex = 10;
-            //int endIndex = code.Length - startIndex;
-
-            //string efficient = code.Substring(startIndex, endIndex);
-
-            //Console.WriteLine($"EMT : {efficient}");
-
-
-
-
-
-            return string.Empty;
+            return res;
         }
 
         public string MorseEncryption(string sentence)

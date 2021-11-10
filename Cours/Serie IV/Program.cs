@@ -19,11 +19,12 @@ namespace Serie_IV
 
 
             //Code en Morse
-            string morse = "===.=.===.=...===.===.===...===.=.=...=.....===.===...===.===.===...=.===.=...=.=.=...="; 
+            string morse = "===.=.===.=...===.===.===...===.=.=...=.....===.===...===.===.===...=.===.=...=.=.=...=";
             Console.WriteLine($"Compteur de lettres : {m.LettersCount(morse)}");
             Console.WriteLine($"Compteur de mots    : {m.WordsCount(morse)}");
             Console.WriteLine($"MT {morse} : {m.MorseTranslation(morse)}");
-            m.EfficientMorseTranslation(morse);
+            morse = "===..=.===.=...===.===.===...===.=.=...=.....===.===...===.===.===...=.===.=...=.=.=...=";
+            Console.WriteLine(m.EfficientMorseTranslation(morse));
 
 
 
